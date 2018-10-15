@@ -1,0 +1,19 @@
+package com.grosa.learning;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("com/grosa/learning/config/beans.xml");
+		
+		Person p = (Person) context.getBean("person");
+		p.speak();
+		System.out.println(p.toString());
+		
+		((ClassPathXmlApplicationContext)context).close();
+	}
+
+}
